@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | ジョガスポーツカレッジ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-jp); color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    .logo-img { display:flex; align-items:center; }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 40px;
+    }
+    .logo { font-family: var(--font-en); font-weight: 800; font-size: 14px; letter-spacing: 0.05em; color: var(--dark); line-height: 1.3; }
+    .logo span { display: block; font-size: 10px; font-weight: 400; color: #777; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    header nav a { font-size: 13px; font-weight: 600; color: var(--dark); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+    header nav a:hover { color: #0E6B8A; }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .btn-contact-h { background: #14608b; color: var(--white); padding: 10px 40px; font-size: 12px; font-weight: 600; font-family: var(--font-en); letter-spacing: 0.08em; transition: background 0.2s; display: inline-block; }
+    .btn-contact-h:hover { background: var(--accent); }
+    .icon-ig { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1.5px solid #ddd; border-radius: 50%; transition: border-color 0.2s; }
+    .icon-ig:hover { border-color: var(--accent); }
+    .icon-ig svg { width: 16px; height: 16px; }
+
+    /* ========== PAGE HERO ========== */
+    .page-hero {
+      margin-top: 100px;
+      background: linear-gradient(135deg, #0E6B8A 0%, #063a50 100%);
+      padding: 56px 60px 48px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: 'PRIVACY POLICY';
+      position: absolute; right: -10px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display); letter-spacing: 0.06em;
+      font-size: 100px; color: rgba(255,255,255,0.04);
+      letter-spacing: 0.04em; white-space: nowrap;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display); letter-spacing: 0.06em;
+      font-size: clamp(36px, 6vw, 72px);
+      color: var(--white); letter-spacing: 0.06em; line-height: 1;
+      margin-bottom: 8px;
+    }
+    .breadcrumb-hero {
+      font-size: 12px; color: rgba(255,255,255,0.4);
+      display: flex; gap: 8px; align-items: center;
+    }
+    .breadcrumb-hero a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .breadcrumb-hero a:hover { color: var(--white); }
+    .breadcrumb-hero span { color: rgba(255,255,255,0.2); }
+
+    /* ========== POLICY BODY ========== */
+    .policy-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 60px 80px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .policy-intro {
+      font-size: 14px; line-height: 2.1; color: #444;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* 各条文 */
+    .policy-article { margin-bottom: 44px; }
+    .policy-article h2 {
+      font-size: 15px; font-weight: 700; color: var(--dark);
+      margin-bottom: 14px;
+      padding-left: 12px;
+      border-left: 3px solid #0E6B8A;
+      line-height: 1.5;
+    }
+    .policy-article p {
+      font-size: 14px; line-height: 2.1; color: #444;
+      margin-bottom: 12px;
+    }
+    .policy-article ul, .policy-article ol {
+      padding-left: 20px; margin-bottom: 12px;
+    }
+    .policy-article ul li, .policy-article ol li {
+      font-size: 14px; line-height: 2.1; color: #444;
+      margin-bottom: 4px;
+    }
+    .article-num {
+      display: inline-block;
+      background: #0E6B8A; color: var(--white);
+      font-family: var(--font-en); font-size: 10px;
+      font-weight: 700; letter-spacing: 0.1em;
+      padding: 2px 8px; margin-bottom: 10px;
+    }
+
+    /* 制定日 */
+    .policy-date {
+      text-align: right; font-size: 13px; color: #999;
+      margin-bottom: 40px;
+    }
+
+    /* ========== CTA ========== */
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; margin-top: 60px; }
+    .cta-card { overflow: hidden; aspect-ratio: 16/8; display: flex; align-items: flex-end; padding: 40px; transition: filter 0.3s; }
+    .cta-card:hover { filter: brightness(1.1); }
+    .cta-card.partnership { background: linear-gradient(135deg, #0E6B8A 0%, #084a60 100%); }
+    .cta-card.contact { background: linear-gradient(135deg, #E05030 0%, #b03a20 100%); }
+    .cta-card-label { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); margin-bottom: 4px; display: block; }
+    .cta-card h3 { font-family: var(--font-display); letter-spacing: 0.06em; font-size: clamp(28px, 4vw, 48px); color: var(--white); letter-spacing: 0.08em; margin-bottom: 8px; }
+    .cta-card-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--dark); padding: 10px 24px; font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; transition: background 0.2s, color 0.2s; }
+    .btn-cta:hover { background: var(--accent); color: var(--white); font-weight: 700; letter-spacing: 0.12em; }
+
+    /* ========== FOOTER ========== */
+    footer { background: var(--white); border-top: 1px solid #E0E0E0; padding: 32px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-btn { background: var(--accent); color: var(--white); padding: 12px 24px; font-size: 11px; font-family: var(--font-en); font-weight: 700; letter-spacing: 0.1em; transition: background 0.2s; display: inline-block; }
+    .footer-btn:hover { background: #fff; color: #000; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .page-hero { padding: 40px 20px 36px; }
+      .policy-wrap { padding: 36px 20px 60px; }
+      .cta-row { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  
+    :root {
+      --orange: #ea5432;
+      --blue:   #14608b;
+      --dark:   #1a1a1a;
+      --text:   #333333;
+      --gray:   #f7f7f7;
+      --line:   #e5e5e5;
+      --white:  #ffffff;
+      --font-jp:   'Noto Sans JP', sans-serif;
+      --font-en:   'Barlow', sans-serif;
+      --font-cond: 'Barlow Condensed', sans-serif;
+    }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 40px;
+    }
+    .logo { align-items: center; }
+    .logo img { height: 100px !important; width: auto !important; display: block; }
+    nav { display: flex; align-items: center; gap: 36px; }
+    header nav a { font-family: var(--font-en); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); transition: color 0.2s; white-space: nowrap; }
+    header nav a:hover, header nav a.active { color: var(--orange); }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .sns-icon { display: flex; align-items: center; justify-content: center; color: var(--dark); transition: color 0.2s; }
+    .sns-icon:hover { color: var(--orange); }
+    .sns-icon svg { width: 20px; height: 20px; }
+    .btn-header { background: var(--orange); color: #fff; padding: 11px 32px; font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
+    .btn-header:hover { background: var(--blue); }
+    /* CTA */
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; }
+    .cta-card { padding: 64px 60px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 240px; transition: filter 0.2s; position: relative; overflow: hidden; }
+    .cta-card:hover { filter: brightness(1.08); }
+    .cta-label { font-family: var(--font-en); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+    .cta-en { font-family: var(--font-cond); font-size: clamp(42px, 6vw, 68px); font-weight: 800; letter-spacing: 0.06em; color: #fff; line-height: 1.1; margin-bottom: 8px; max-width: 520px; min-height: 58px; display: flex; align-items: flex-end; white-space: nowrap; }
+    .cta-jp { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 12px; max-width: 400px; min-height: 16px; }
+    .cta-desc { font-size: 11px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; max-width: 520px; min-height: 38px; display: flex; align-items: flex-start; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: var(--dark);
+      padding: 10px 24px; font-family: var(--font-en);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; width: fit-content;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-card:hover .cta-btn { background: var(--orange); color: #fff; }
+    .cta-card.partner { background: #111; }
+    .cta-card.contact { background: var(--blue); }
+    
+    /* SNS BANNER */
+    .sns-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #e0e0e0;
+      margin: 0;
+    }
+    .sns-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px 40px;
+      background: #fff;
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .sns-card:hover { background: #fafafa; }
+    .sns-card-border {
+      border-left: 1px solid #e0e0e0;
+    }
+    .sns-logo {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .sns-card-text {
+      flex: 1;
+    }
+    .sns-card-text p {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+    .sns-card-text strong {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .sns-ext {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+    }
+    @media (max-width: 900px) {
+      .sns-banner { grid-template-columns: 1fr; }
+      .sns-card-border { border-left: none; border-top: 1px solid #e0e0e0; }
+    }
+    
+    /* ===== LOGO OVERRIDE（後勝ち・競合解消） ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .logo img,
+    .logo-img {
+      height: 100px !important;
+      width: auto !important;
+      max-width: none !important;
+      display: block;
+      object-fit: contain;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    
+    /* ===== SP ロゴ高さ強制上書き ===== */
+    @media (max-width: 768px) {
+      .logo img,
+      .logo-img {
+        height: 72px !important;
+        width: auto !important;
+        max-width: none !important;
+      }
+    }
+
+    /* ===== SP: ヘッダー下余白リセット ===== */
+    @media (max-width: 768px) {
+      .page-hero {
+        margin-top: 88px;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header>
+    <a href="index.html" class="logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:60px;width:auto;" />
+    </a>
+    <nav>
+      <a href="index.html">ジョガスポとは</a>
+      <a href="news.html">ニュース</a>
+      <a href="event.html">イベント・スクール・施設訪問</a>
+      <a href="partner.html">パートナーシップ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" class="sns-icon" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" class="sns-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="contact.html" class="btn-header">お問い合わせ</a>
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  </header>
+  <!-- SP MENU -->
+  <div class="sp-menu" id="spMenu">
+    <div class="sp-menu-header">
+      <a href="index.html" class="sp-menu-logo">
+        <img src="img/common/jogaspo_logo_white.svg" alt="JOGASPO" />
+      </a>
+      <button class="sp-menu-close" id="spMenuClose" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="sp-nav">
+      <a href="index.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ジョガスポとは</a>
+      <a href="news.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ニュース</a>
+      <a href="event.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">イベント・スクール・施設訪問</a>
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">パートナーシップ</a>
+    </nav>
+    <div class="sp-sns">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <span class="sns-yt-bg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        YOUTUBE
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        INSTAGRAM
+      </a>
+    </div>
+    <div class="sp-cta-links">
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">PARTNER SHIP</a>
+      <a href="contact.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">CONTACT US</a>
+    </div>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <div class="page-hero">
+    <h1>PRIVACY<br>POLICY</h1>
+    <div class="breadcrumb-hero" style="margin-top:12px;">
+      <a href="index.html">TOP</a>
+      <span>›</span>
+      <span>Privacy Policy</span>
+    </div>
+  </div>
+
+  <!-- ========== POLICY ========== -->
+  <div class="policy-wrap">
+
+    <p class="policy-intro">
+      一般社団法人ジョガスポーツカレッジ（以下「当法人」といいます。）は、当法人の提供するサービス（以下「本サービス」といいます。）の利用者から受領する個人情報（個人情報の保護に関する法律（平成15年法律第57号。以下「個人情報保護法」といいます。）に定義される「個人情報」をいいます。）を含む情報（以下「個人情報等」といいます。）の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます。）を定めます。
+    </p>
+
+    <!-- 1 -->
+    <div class="policy-article">
+      <span class="article-num">1</span>
+      <h2>取得する個人情報等</h2>
+      <p>当法人が取得する個人情報等には、以下のような情報が含まれます。</p>
+      <p><strong>（1）利用者から直接ご提供いただく利用者自身の情報</strong></p>
+      <p>当法人は、利用者が本サービスのご利用を開始する場合等において、利用者から直接情報をご提供いただくことがあります。利用者から直接ご提供いただく情報には、利用者の氏名等の利用者ご自身の情報のほか、メールアドレス、電話番号等の連絡先に関する情報等が含まれます。</p>
+      <p><strong>（2）利用者から受領する第三者の情報</strong></p>
+      <p>当法人は、利用者から本サービスの利用に際して利用者の従業員に関する情報を受領する場合等、利用者から利用者以外の第三者に関する個人情報等を受領する場合があります。</p>
+      <p><strong>（3）本サービス等の利用に伴い当法人が自動的に取得する情報</strong></p>
+      <p>利用者が本サービスを利用する場合や当法人のウェブサイトを閲覧する場合などに、IPアドレス、Cookieやその類似技術に関する情報、端末ID、位置情報、アクセスログ、閲覧履歴等の情報を取得する場合があります（なお、これらの情報の中には個人情報に該当しないものもありますが、本ポリシーは個人情報に該当するものについてのみ適用されます）。</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="policy-article">
+      <span class="article-num">2</span>
+      <h2>取得・受領した個人情報等の利用目的</h2>
+      <p>当法人は、取得した個人情報等を次の目的で利用いたします。</p>
+      <ul>
+        <li>本サービスの提供及びアフターサービスの提供</li>
+        <li>メール等による新サービス等に関する情報のお知らせ</li>
+        <li>本サービスの企画、開発、改良、品質向上</li>
+        <li>本サービスのマーケティング調査</li>
+        <li>利用者のサービス利用履歴の分析及びそれによるサービスの品質向上</li>
+        <li>本サービスに問題が発生した場合等の連絡及び確認</li>
+        <li>上記各種に関連した利用者からの問い合わせの対応</li>
+        <li>その他利用者のご要望に沿うための様々な対応</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="policy-article">
+      <span class="article-num">3</span>
+      <h2>個人情報等の第三者への提供</h2>
+      <p>当法人は、お預かりした個人情報等を第三者に提供することは行いません。ただし、以下の場合は除きます。</p>
+      <p><strong>a.</strong> 個人情報等の提供について個別に同意を得た場合</p>
+      <p><strong>b.</strong> それぞれの利用目的の達成に必要な範囲内で、個人情報等の全部又は一部を当法人の業務委託先へ提供する場合<br>
+      この場合、当法人は、業務委託先に対し情報管理に関する適切な監督を行ったうえで提供を行います。</p>
+      <p><strong>c.</strong> 共同利用を行う場合<br>
+      他社と、本ポリシーに記載する利用目的の範囲内で、以下の情報を共同利用することがあります。</p>
+      <p style="padding-left:1.5em;">・氏名、電話番号及びE-mailアドレス等の利用者の基本情報<br>
+      ・利用者の本サービスの利用履歴に関する情報</p>
+      <p><strong>d.</strong> 法令に基づく場合等<br>
+      法令に基づく場合、及び人の生命、身体又は財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき等、個人情報保護法にしたがって個人情報等を第三者に提供することがあります。その場合であっても、提供は必要な範囲内にとどめ、開示に係る利用者等のプライバシー等の権利が守られるよう努めます。</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="policy-article">
+      <span class="article-num">4</span>
+      <h2>個人情報等に関する利用者からの開示、訂正、削除、消去、及び利用停止等の方法</h2>
+      <p>本人が、個人情報保護法に従い、個人情報等の開示、訂正、削除、消去、及び利用停止等のご請求を行う場合については、後述のお問い合わせ窓口までご連絡ください。別途、具体的なお手続をご案内いたします。なお、個人情報等の開示を行う場合には、電磁的記録の提供による方法又は書面による方法のいずれかをご選択の上で、当法人所定の本人確認書類をご提出いただいたうえ、当法人所定の手数料を申し受けますので、あらかじめご了承ください。</p>
+      <p>また、ご意見及びご質問等のお申出その他個人情報の取扱いに関するお問い合わせを行われる場合にも、お問い合わせ窓口までご連絡ください。</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="policy-article">
+      <span class="article-num">5</span>
+      <h2>安全管理措置</h2>
+      <p>当法人は、個人情報等について、漏えい、滅失又はき損の防止等、その管理のために必要かつ適切な安全管理措置を講じます。また、個人情報等を取り扱う従業者や委託先に対して、必要かつ適切な監督を行います。個人情報等の安全管理措置に関して、詳細をお知りになりたい場合は、後述のお問い合わせ窓口までご連絡ください。</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="policy-article">
+      <span class="article-num">6</span>
+      <h2>個人情報等の目的外利用</h2>
+      <p>当法人では、本人の同意なく、取得時点の本ポリシーに記載されている利用目的の範囲を超えて利用者の個人情報等を利用することはありません。ただし、個人情報保護法で認められている事由に該当する場合は、この限りではありません。</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="policy-article">
+      <span class="article-num">7</span>
+      <h2>お問い合わせ及び苦情等の窓口について</h2>
+      <p>個人情報等に関する開示、訂正、削除、消去、及び利用停止等のご請求、並びに本ポリシー又は当法人の個人情報等の取扱に関してのお問合わせ、ご意見及びご質問等は以下の連絡先までご連絡ください。</p>
+      <p>
+        一般社団法人ジョガスポーツカレッジ　個人情報問合せ窓口<br>
+        〒227-0046　神奈川県横浜市青葉区たちばな台1-11-9 324<br>
+        メールアドレス：<a href="mailto:info@jogaspo.com" style="color:var(--orange);">info@jogaspo.com</a>
+      </p>
+      <p>※ 土日祝日及び年末年始等の当法人の休業日には、ご回答にお時間をいただく場合がございます。ご了承ください。</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="policy-article">
+      <span class="article-num">8</span>
+      <h2>プライバシーポリシーの変更手続</h2>
+      <p>当法人は、必要に応じて、本ポリシーを変更いたします。その場合、変更後のプライバシーポリシーの内容及び施行時期を当法人のウェブサイト上での表示その他の適切な方法により周知し、または利用者に通知します。</p>
+    </div>
+
+    <p style="text-align:right; font-size:13px; color:#aaa; margin-top:40px; padding-top:24px; border-top:1px solid #eee;">
+      2025年4月3日　制定<br>
+      一般社団法人ジョガスポーツカレッジ
+    </p>
+
+  </div>
+
+    <!-- CTA -->
+  <div class="cta-row">
+    <a href="partner.html" class="cta-card partner" data-en="PARTNERSHIP">
+      <p class="cta-en">PARTNER SHIP</p>
+      <p class="cta-jp">パートナーシップ</p>
+      <p class="cta-desc">スポーツを通じた活動で、全国の子どもたちを支援するパートナーを募集しています。</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+    <a href="contact.html" class="cta-card contact" data-en="CONTACT US">
+      <p class="cta-en">CONTACT US</p>
+      <p class="cta-jp">お問い合わせ</p>
+      <p class="cta-desc">活動、協賛、取材・広報に関するお問い合わせはこちらから</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html" class="footer-logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:152px;width:auto;" />
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="about.html">運営団体について</a>
+    </div>
+    <p class="footer-copy">© JOGASPO. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function(){
+      var btn    = document.getElementById('hamburgerBtn');
+      var menu   = document.getElementById('spMenu');
+      var closeBtn = document.getElementById('spMenuClose');
+      function openMenu(){
+        menu.classList.add('is-open');
+        btn.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      if(btn)  btn.addEventListener('click', function(){ menu.classList.contains('is-open') ? closeMenu() : openMenu(); });
+      if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if(menu) menu.querySelectorAll('.sp-nav a, .sp-cta-links a').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

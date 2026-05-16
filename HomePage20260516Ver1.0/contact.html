@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | ジョガスポーツカレッジ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #0E6B8A 0%, #063a50 100%);
+      padding: 56px 60px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: 'CONTACT';
+      position: absolute; right: 40px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-cond); font-size: 140px; font-weight: 800;
+      color: rgba(255,255,255,0.05); white-space: nowrap; letter-spacing: 0.04em;
+      pointer-events: none;
+    }
+    .page-hero-label {
+      font-family: var(--font-en); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); margin-bottom: 10px; display: block;
+    }
+    .page-hero h1 {
+      font-size: clamp(24px, 3.5vw, 40px); font-weight: 900;
+      color: #fff; line-height: 1.3; margin-bottom: 8px;
+    }
+    .page-hero p {
+      font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.8;
+    }
+
+    /* ===== CONTACT WRAP ===== */
+    .contact-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 60px 80px;
+    }
+    .google-form-section h2 {
+      font-size: 18px; font-weight: 700; color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: 14px; line-height: 2; color: #555;
+      margin-bottom: 40px;
+    }
+    .form-wrap {
+      border: 2px solid var(--blue);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .form-wrap iframe { display: block; width: 100%; }
+
+    /* ===== INFO BOXES ===== */
+    .info-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+    .info-box {
+      padding: 28px 32px;
+      background: var(--gray);
+      border-left: 4px solid var(--blue);
+    }
+    .info-box h3 {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 700; color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .info-box h3 svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue); }
+    .info-box p { font-size: 13px; line-height: 1.9; color: #555; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 48px 24px; }
+      .contact-wrap { padding: 48px 24px; }
+      .info-boxes { grid-template-columns: 1fr; }
+    }
+  
+    /* ===== SP ロゴ高さ強制上書き ===== */
+    @media (max-width: 768px) {
+      .logo img,
+      .logo-img {
+        height: 72px !important;
+        width: auto !important;
+        max-width: none !important;
+      }
+    }
+
+    /* ===== SP: ヘッダー下余白リセット ===== */
+    @media (max-width: 768px) {
+      .page-hero {
+        margin-top: 88px;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:60px;width:auto;" />
+    </a>
+    <nav>
+      <a href="index.html">ジョガスポとは</a>
+      <a href="news.html">ニュース</a>
+      <a href="event.html">イベント・スクール・施設訪問</a>
+      <a href="partner.html">パートナーシップ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" class="sns-icon" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" class="sns-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="contact.html" class="btn-header">お問い合わせ</a>
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  </header>
+  <!-- SP MENU -->
+  <div class="sp-menu" id="spMenu">
+    <div class="sp-menu-header">
+      <a href="index.html" class="sp-menu-logo">
+        <img src="img/common/jogaspo_logo_white.svg" alt="JOGASPO" />
+      </a>
+      <button class="sp-menu-close" id="spMenuClose" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="sp-nav">
+      <a href="index.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ジョガスポとは</a>
+      <a href="news.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ニュース</a>
+      <a href="event.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">イベント・スクール・施設訪問</a>
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">パートナーシップ</a>
+    </nav>
+    <div class="sp-sns">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <span class="sns-yt-bg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        YOUTUBE
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        INSTAGRAM
+      </a>
+    </div>
+    <div class="sp-cta-links">
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">PARTNER SHIP</a>
+      <a href="contact.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">CONTACT US</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>お問い合わせ</h1>
+    <p>取材・協賛・活動参加・その他のお問い合わせ</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-wrap">
+
+    <div class="google-form-section">
+      <h2>お問い合わせフォーム</h2>
+      <p class="lead">
+        取材・協賛・活動参加・その他のお問い合わせなど、以下のフォームよりお問い合わせください。<br>
+        内容を確認の上、担当者よりご連絡をさせていただきます。<br><br>
+        ※内容によっては、返信までにお時間をいただく場合やご回答を控えさせていただく場合がございます。あらかじめご了承ください。
+      </p>
+      <div class="form-wrap">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScFpn1uGsRMPz2TDGvsq1C6TUQcG_yj2diuvEljxOkc4-CNxQ/viewform?embedded=true"
+          width="100%"
+          height="1800"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          style="border:0;">
+          読み込んでいます…
+        </iframe>
+      </div>
+    </div>
+
+    <!-- INFO BOXES -->
+    <div class="info-boxes">
+      <div class="info-box">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          取材・メディアの方へ
+        </h3>
+        <p>取材のご依頼は「お問い合わせ種別：取材・広報に関して」を選択して送信ください。</p>
+      </div>
+      <div class="info-box">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          返信について
+        </h3>
+        <p>お問い合わせいただいた内容は、通常2〜3営業日以内にご返信いたします。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-row">
+    <a href="partner.html" class="cta-card partner" data-en="PARTNERSHIP">
+      <p class="cta-en">PARTNER SHIP</p>
+      <p class="cta-jp">パートナーシップ</p>
+      <p class="cta-desc">スポーツを通じた活動で、全国の子どもたちを支援するパートナーを募集しています。</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+    <a href="contact.html" class="cta-card contact" data-en="CONTACT US">
+      <p class="cta-en">CONTACT US</p>
+      <p class="cta-jp">お問い合わせ</p>
+      <p class="cta-desc">活動、協賛、取材・広報に関するお問い合わせはこちらから</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html" class="footer-logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:152px;width:auto;" />
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="about.html">運営団体について</a>
+    </div>
+    <p class="footer-copy">© JOGASPO. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function(){
+      var btn    = document.getElementById('hamburgerBtn');
+      var menu   = document.getElementById('spMenu');
+      var closeBtn = document.getElementById('spMenuClose');
+      function openMenu(){
+        menu.classList.add('is-open');
+        btn.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      if(btn)  btn.addEventListener('click', function(){ menu.classList.contains('is-open') ? closeMenu() : openMenu(); });
+      if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if(menu) menu.querySelectorAll('.sp-nav a, .sp-cta-links a').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

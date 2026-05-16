@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジョガスポーツカレッジ | スポーツイベント・スクール</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #ea5432;
+      --blue:   #14608b;
+      --dark:   #1a1a1a;
+      --text:   #333333;
+      --gray:   #f7f7f7;
+      --line:   #e5e5e5;
+      --white:  #ffffff;
+      --font-jp:   'Noto Sans JP', sans-serif;
+      --font-en:   'Barlow', sans-serif;
+      --font-cond: 'Barlow Condensed', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-jp); color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 40px;
+    }
+    .logo { align-items: center; }
+    .logo img { height: 100px !important; width: auto !important; display: block; }
+    nav { display: flex; align-items: center; gap: 36px; }
+    header nav a {
+      font-family: var(--font-en); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark);
+      transition: color 0.2s; white-space: nowrap;
+    }
+    header nav a:hover { color: var(--orange); }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .sns-icon { display: flex; align-items: center; justify-content: center; color: var(--dark); transition: color 0.2s; }
+    .sns-icon:hover { color: var(--orange); }
+    .sns-icon svg { width: 20px; height: 20px; }
+    .btn-header {
+      background: var(--orange); color: #fff;
+      padding: 11px 32px; font-family: var(--font-en);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: background 0.2s;
+    }
+    .btn-header:hover { background: var(--blue); }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-top: 100px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #0d2d1a 0%, #14608b 60%, #ea5432 100%);
+      min-height: 520px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 60px 40px;
+    }
+    .hero-label {
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.3em; color: var(--orange); text-transform: uppercase;
+      margin-bottom: 20px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 900;
+      color: #fff; line-height: 1.45; letter-spacing: 0.02em;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 88px 60px; }
+    section.bg-gray { background: var(--gray); }
+    .sec-head { text-align: center; margin-bottom: 48px; }
+    .sec-en {
+      font-family: var(--font-cond); font-size: clamp(36px, 6vw, 60px);
+      font-weight: 800; letter-spacing: 0.08em; color: var(--dark);
+      line-height: 1; display: block;
+    }
+    .sec-jp {
+      font-size: 13px; color: #999; margin-top: 6px; display: block;
+    }
+    .sec-divider {
+      width: 40px; height: 3px; background: var(--orange);
+      margin: 14px auto 0;
+    }
+
+    /* ===== NEWS ===== */
+    .news-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; max-width: 1100px; margin: 0 auto 40px;
+    }
+    .news-card {
+      display: block; transition: transform 0.2s, opacity 0.2s;
+    }
+    .news-card:hover { transform: translateY(-4px); opacity: 0.85; }
+    .news-thumb {
+      aspect-ratio: 4/3; background: #ddd;
+      overflow: hidden; margin-bottom: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: #aaa; position: relative;
+    }
+    .news-cat {
+      display: inline-block; font-family: var(--font-en);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 8px; margin-bottom: 6px;
+    }
+    .news-cat.osira { background: var(--blue); color: #fff; }
+    .news-cat.event { background: var(--orange); color: #fff; }
+    .news-date { font-size: 12px; color: #999; margin-bottom: 6px; }
+    .news-card p { font-size: 13px; line-height: 1.7; color: var(--dark); font-weight: 500; }
+
+    .btn-more {
+      display: inline-flex; align-items: center; gap: 12px;
+      border: 1.5px solid var(--dark); color: var(--dark);
+      padding: 13px 40px; font-family: var(--font-en);
+      font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.2s;
+    }
+    .btn-more:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .center { text-align: center; }
+
+    /* ===== CONCEPT ===== */
+    .concept-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; max-width: 1000px; margin: 0 auto;
+    }
+    .concept-logo-box {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .concept-logo-box img { width: 180px; height: auto; }
+    .concept-text h3 {
+      font-size: clamp(18px, 2.5vw, 26px); font-weight: 900;
+      line-height: 1.6; color: var(--dark); margin-bottom: 20px;
+    }
+    .concept-text p { font-size: 14px; line-height: 2.1; color: #555; }
+
+    /* ===== KOSUKE OTA ===== */
+    .ota-inner {
+      display: grid; grid-template-columns: 1fr 380px;
+      gap: 72px; align-items: start; max-width: 1000px; margin: 0 auto;
+    }
+    .ota-text .name-en {
+      font-family: var(--font-cond); font-size: 48px; font-weight: 800;
+      letter-spacing: 0.06em; color: var(--blue); line-height: 1; margin-bottom: 4px;
+    }
+    .ota-text .name-jp { font-size: 14px; color: #999; margin-bottom: 28px; }
+    .ota-text p { font-size: 14px; line-height: 2.1; color: #444; margin-bottom: 16px; }
+    .ota-career { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .ota-career h4 {
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    .ota-career p { font-size: 13px; line-height: 2; color: #555; }
+    .ota-photo {
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      width: 100%;
+    }
+
+    /* ===== EVENT / SCHOOL ===== */
+    .event-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px; max-width: 1200px; margin: 0 auto;
+    }
+    .event-card {
+      position: relative; overflow: hidden;
+      display: block; transition: transform 0.2s;
+    }
+    .event-card:hover { transform: translateY(-4px); }
+    .event-card-img {
+      aspect-ratio: 16/10; background: #ddd;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: #aaa; position: relative; overflow: hidden;
+    }
+    .event-num {
+      position: absolute; top: 16px; left: 16px;
+      font-family: var(--font-cond); font-size: 48px; font-weight: 800;
+      color: rgba(255,255,255,0.15); line-height: 1;
+    }
+    /* EVENT番号：画像上で視認できる白文字に上書き（スコープ限定） */
+    #event .event-num {
+      color: rgba(255, 255, 255, 0.75);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      z-index: 1;
+    }
+    .event-card-body { padding: 20px 0; }
+    .event-card-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+    .event-card-body p { font-size: 13px; color: #666; }
+
+    /* ===== SNS BANNER ===== */
+    .sns-banner {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .sns-card {
+      padding: 56px 60px; display: flex;
+      align-items: center; gap: 28px;
+      transition: opacity 0.2s;
+    }
+    .sns-card:hover { opacity: 0.85; }
+    .sns-card.yt { background: #1a1a1a; }
+    .sns-card.ig { background: var(--blue); }
+    .sns-card-icon { flex-shrink: 0; }
+    .sns-card-icon svg { width: 40px; height: 40px; color: #fff; }
+    .sns-card-text { color: #fff; }
+    .sns-card-text p { font-size: 12px; opacity: 0.7; margin-bottom: 4px; }
+    .sns-card-text strong { font-size: 15px; font-weight: 700; }
+
+    /* ===== CTA ===== */
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; }
+    .cta-card {
+      padding: 64px 60px; display: flex; flex-direction: column;
+      justify-content: flex-end; min-height: 260px;
+      transition: filter 0.2s; position: relative; overflow: hidden;
+    }
+    .cta-card:hover { filter: brightness(1.08); }
+    .cta-card.partner { background: #111; }
+    .cta-card.contact { background: var(--blue); }
+    .cta-label { font-family: var(--font-en); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+    .cta-en { font-family: var(--font-cond); font-size: clamp(42px, 6vw, 68px); font-weight: 800; letter-spacing: 0.06em; color: #fff; line-height: 1.1; margin-bottom: 8px; max-width: 520px; min-height: 58px; display: flex; align-items: flex-end; white-space: nowrap; }
+    .cta-jp { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 12px; max-width: 400px; min-height: 16px; }
+    .cta-desc { font-size: 11px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; max-width: 520px; min-height: 38px; display: flex; align-items: flex-start; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: var(--dark);
+      padding: 10px 24px; font-family: var(--font-en);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; width: fit-content;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-card:hover .cta-btn { background: var(--orange); color: #fff; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #fff; border-top: 1px solid var(--line);
+      padding: 32px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: #888; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-copy { font-size: 11px; color: #bbb; font-family: var(--font-en); }
+
+    /* ===== MAIN PARTNER ===== */
+    /* ===== MAIN PARTNER（スコープ限定・v9） ===== */
+    .main-partner-section {
+      background: #fff;
+      max-width: 100%;
+      padding: 80px 60px;
+    }
+    .main-partner-content {
+      display: block;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .main-partner-text p {
+      font-size: 14px;
+      line-height: 2.1;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    /* ② イベント写真：実画像表示 */
+    .main-partner-image {
+      width: 100%;
+      margin-bottom: 24px;
+      overflow: hidden;
+      background: #e5e5e5;
+    }
+    .main-partner-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* ⑤ VIEW MOREボタン：中央配置 */
+    .main-partner-btn-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .main-partner-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--orange);
+      color: #fff;
+      padding: 14px 32px;
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .main-partner-btn:hover {
+      background: var(--blue);
+    }
+    @media (max-width: 900px) {
+      .main-partner-section { padding: 60px 20px; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .fade-up-d1 { animation-delay: 0.1s; }
+    .fade-up-d2 { animation-delay: 0.2s; }
+    .fade-up-d3 { animation-delay: 0.3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      section { padding: 60px 20px; }
+      .news-grid { grid-template-columns: 1fr 1fr; }
+      .concept-inner, .ota-inner, .event-grid { grid-template-columns: 1fr; gap: 40px; }
+      /* main-partner SP対応はv9スタイルで対応済み */
+      .sns-banner, .cta-row { grid-template-columns: 1fr; }
+      .cta-card { min-height: 200px; padding: 48px 28px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .news-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* SNS BANNER */
+    .sns-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #e0e0e0;
+      margin: 0;
+    }
+    .sns-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px 40px;
+      background: #fff;
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .sns-card:hover { background: #fafafa; }
+    .sns-card-border {
+      border-left: 1px solid #e0e0e0;
+    }
+    .sns-logo {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .sns-card-text {
+      flex: 1;
+    }
+    .sns-card-text p {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+    .sns-card-text strong {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .sns-ext {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+    @media (max-width: 900px) {
+      .sns-banner { grid-template-columns: 1fr; }
+      .sns-card-border { border-left: none; border-top: 1px solid #e0e0e0; }
+    }
+    
+    /* ===== LOGO OVERRIDE（後勝ち・競合解消） ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .logo img,
+    .logo-img {
+      height: 100px !important;
+      width: auto !important;
+      max-width: none !important;
+      display: block;
+      object-fit: contain;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    
+    /* ===== SP ロゴ高さ強制上書き ===== */
+    @media (max-width: 768px) {
+      .logo img,
+      .logo-img {
+        height: 72px !important;
+        width: auto !important;
+        max-width: none !important;
+      }
+    }
+
+    /* ===== SP: ヘッダー下余白リセット ===== */
+    @media (max-width: 768px) {
+      .hero {
+        margin-top: 88px;
+      }
+    }@media (max-width: 640px) {
+    .ota-inner {
+      flex-direction: column;
+    }
+
+    .ota-photo {
+      order: -1;
+      width: 100%;
+    }
+  }
+
+
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header>
+    <a href="index.html" class="logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:60px;width:auto;" />
+    </a>
+    <nav>
+      <a href="index.html">ジョガスポとは</a>
+      <a href="news.html">ニュース</a>
+      <a href="event.html">イベント・スクール・施設訪問</a>
+      <a href="partner.html">パートナーシップ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" class="sns-icon" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" class="sns-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="contact.html" class="btn-header">お問い合わせ</a>
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  </header>
+  <!-- SP MENU -->
+  <div class="sp-menu" id="spMenu">
+    <div class="sp-menu-header">
+      <a href="index.html" class="sp-menu-logo">
+        <img src="img/common/jogaspo_logo_white.svg" alt="JOGASPO" />
+      </a>
+      <button class="sp-menu-close" id="spMenuClose" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="sp-nav">
+      <a href="index.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ジョガスポとは</a>
+      <a href="news.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ニュース</a>
+      <a href="event.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">イベント・スクール・施設訪問</a>
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">パートナーシップ</a>
+    </nav>
+    <div class="sp-sns">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <span class="sns-yt-bg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        YOUTUBE
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        INSTAGRAM
+      </a>
+    </div>
+    <div class="sp-cta-links">
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">PARTNER SHIP</a>
+      <a href="contact.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">CONTACT US</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero" id="about">
+    <div class="hero-content fade-up">
+      <span class="hero-label">JOGA SPORTS COLLEGE</span>
+      <h1>誰もが平等にスポーツを<br>楽しめる機会を届ける</h1>
+    </div>
+  </div>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="sec-head fade-up">
+      <span class="sec-en">NEWS</span>
+      <span class="sec-jp">ニュース</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="news-grid">
+      <a href="news-detail.1.html" class="news-card fade-up">
+        <div class="news-thumb">
+          <img src="img/index/pia_partner.png" alt="ぴあ株式会社とのパートナーシップ契約締結" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+        </div>
+        <span class="news-cat osira">お知らせ</span>
+        <p class="news-date">2025.04.01</p>
+        <p>ぴあ株式会社とのオフィシャルパートナーシップ契約締結のお知らせ</p>
+      </a>
+      <a href="news-detail.2.html" class="news-card fade-up fade-up-d1">
+        <div class="news-thumb">
+          <img src="img/event/20260322_event2.png" alt="2026年山武市サッカー教室チラシ" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        </div>
+        <span class="news-cat osira">お知らせ</span>
+        <p class="news-date">2026.03.02</p>
+        <p>ジョガスポ in 千葉県山武市</p>
+      </a>
+      <a href="news-detail.3.html" class="news-card fade-up fade-up-d2">
+        <div class="news-thumb">
+          <img src="img/event/20250914_event3.jpeg" alt="ジョガスポ × 立川アスレ" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+        </div>
+        <span class="news-cat osira">お知らせ</span>
+        <p class="news-date">2025.09.14</p>
+        <p>ジョガスポ × 立川アスレ</p>
+      </a>
+      <a href="news-detail.4.html" class="news-card fade-up fade-up-d3">
+        <div class="news-thumb">
+          <img src="img/event/20250907_event4.jpg" alt="にかほ市サッカー協会 設立20周年記念事業" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+        </div>
+        <span class="news-cat osira">お知らせ</span>
+        <p class="news-date">2025.05.17</p>
+        <p>にかほ市サッカー協会 設立20周年記念事業</p>
+      </a>
+    </div>
+    <div class="center"><a href="news.html" class="btn-more">VIEW MORE →</a></div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section id="concept" class="bg-gray">
+    <div class="sec-head fade-up">
+      <span class="sec-en">CONCEPT</span>
+      <span class="sec-jp">コンセプト</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="concept-inner">
+      <div class="concept-logo-box fade-up">
+        <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:320px;width:auto;" />
+      </div>
+      <div class="concept-text fade-up fade-up-d1">
+        <h3>全ての子どもたちに平等に<br>スポーツを楽しんでもらう。</h3>
+        <p>全国各地でスポーツイベント・スポーツ教室を開催していきます。地域・行政などと連携し、参加してくれた子供たちみんなをHAPPYに、笑顔溢れる活動をしていきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KOSUKE OTA -->
+  <section id="ota">
+    <div class="sec-head fade-up">
+      <span class="sec-en">OUR TEAM</span>
+      <span class="sec-jp">運営メンバー</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="ota-inner">
+      <div class="ota-text fade-up">
+        <p class="name-en">KOSUKE OTA</p>
+        <p class="name-jp">太田 宏介</p>
+        <p>僕は母子家庭で育ちました。幼いころから苦しいことや辛いこともたくさん経験してきました。生活するだけでも大変な時期もありましたが、周りの方々の支えのおかげで大好きなサッカーを辞めることなく、これまでのキャリアを築くことができました。</p>
+        <p>僕の想いはシンプルです。「この活動を通じて、多くの子どもと家族を幸せにしたい。」経済的に苦しくても、必死に頑張れば明るい未来が待っているということを自身の経験から伝えていきたいです。</p>
+        <p>僕自身を育ててくれたサッカー界、スポーツ界に恩返しをしていきたいと思います。</p>
+        <div class="ota-career">
+          <h4>Career</h4>
+          <p>つくし野SSS - FC町田 - 麻布大学附属渕野辺高校 - 横浜FC - 清水エスパルス - FC東京 - SBVフィテッセ - FC東京 - 名古屋グランパス - パース・グローリーFC - FC町田ゼルビア</p>
+        </div>
+        <div class="ota-career" style="margin-top:20px; padding-top:20px;">
+          <h4>実績</h4>
+          <p>Jリーグ通算：346試合出場11得点<br>
+          代表歴：U19・20 日本代表 / 2010-2016 日本代表<br>
+          Jリーグベストイレブン（2014, 2015）<br>
+          Jリーグ優秀選手賞（2011, 2013, 2014, 2015）</p>
+        </div>
+      </div>
+      <img src="img/index/ota_kosuke.svg" alt="太田宏介" class="ota-photo fade-up fade-up-d1" style="width:100%; object-fit:cover; object-position:top;">
+    </div>
+
+    <div class="ota-inner" style="margin-top: 80px; padding-top: 80px; border-top: 1px solid var(--line);">
+      <div class="ota-text fade-up">
+        <p class="name-en">SHOTARO HARAGUCHI</p>
+        <p class="name-jp">原口 翔太郎</p>
+        <p>私はビーチサッカーで、喜びだけでなく悔しさや苦しさとも向き合ってきました。14年間続けられたのは、支えてくださった方々の存在があったからです。だからこそ今度は、自分が誰かの力になりたいと思っています。</p>
+        <p>現役時代から障がいを持つ子どもたちにサッカーボールを届ける活動を続け、スポーツが生み出す笑顔の力を実感してきました。引退後もその想いは変わりません。ジョガスポを通じて、一人でも多くの子どもたちの未来を明るくしていきます。</p>
+        <div class="ota-career">
+          <h4>Career</h4>
+          <p>平間FC - 橘高校 - ポンチムンド - INTER JAPAN - 東京レキオス - 東京ヴェルディ</p>
+        </div>
+        <div class="ota-career" style="margin-top:20px; padding-top:20px;">
+          <h4>実績</h4>
+          <p>2015年大会　FIFAビーチサッカーワールドカップ<br>
+          2017年大会　FIFAビーチサッカーワールドカップ<br>
+          2021年大会　FIFAビーチサッカーワールドカップ<br>
+          史上初のFIFAビーチサッカーワールドカップ準優勝に貢献</p>
+        </div>
+      </div>
+      <img src="img/index/haraguchi_shotaro.svg" alt="原口翔太郎" class="ota-photo fade-up fade-up-d1" style="width:100%; object-fit:cover; object-position:top;">
+    </div>
+  </section>
+
+  <!-- EVENT / SCHOOL -->
+  <section id="event" class="bg-gray">
+    <div class="sec-head fade-up">
+      <span class="sec-en">EVENT・SCHOOL・VISIT</span>
+      <span class="sec-jp">イベント・スクール・施設訪問</span>
+      <div class="sec-divider"></div>
+    </div>
+    <p style="text-align:center; font-size:14px; color:#555; max-width:720px; margin:0 auto 48px; line-height:2;">ジョガスポでは、全国47都道府県で開催される「体験型イベント」と、スクール常設校（神奈川県 2拠点）を開催しています。そして太田 / 原口が全国各地の児童養護施設や特別支援学校、子ども食堂などの施設に訪問し、子供たちと直接交流する機会を提供しています。</p>
+    <div class="event-grid">
+      <a href="event.html" class="event-card fade-up">
+        <div class="event-card-img">
+          <img src="img/index/TOP.jpg" alt="イベント・ワークショップ" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+          <span class="event-num" style="position:absolute;z-index:1;">01</span>
+        </div>
+        <div class="event-card-body">
+          <h3>イベント・ワークショップ</h3>
+          <p>全国各地で体験型イベントを開催</p>
+        </div>
+      </a>
+      <a href="event.html" class="event-card fade-up fade-up-d1">
+        <div class="event-card-img">
+          <img src="img/common/ジョガスポ湘南校.png" alt="常設スクール" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+          <span class="event-num" style="position:absolute;z-index:1;">02</span>
+        </div>
+        <div class="event-card-body">
+          <h3>常設スクール</h3>
+          <p>神奈川県2拠点で定期開催</p>
+        </div>
+      </a>
+      <a href="event.html" class="event-card fade-up fade-up-d2">
+        <div class="event-card-img">
+          <img src="img/common/2FA6829D-CACC-41C6-BCF9-AFB5F1E148EE.jpg" alt="施設訪問" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+          <span class="event-num" style="position:absolute;z-index:1;">03</span>
+        </div>
+        <div class="event-card-body">
+          <h3>施設訪問</h3>
+          <p>全国各地の児童養護施設や特別支援学校などを訪問</p>
+        </div>
+      </a>
+    </div>
+    <div class="center" style="margin-top:40px;">
+      <a href="event.html" class="btn-more">VIEW MORE →</a>
+    </div>
+  </section>
+
+  <!-- メインパートナー -->
+  <section class="main-partner-section">
+    <div class="sec-head fade-up">
+      <span class="sec-en">MAIN PARTNER</span>
+      <span class="sec-jp">メインパートナー</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="main-partner-content">
+      <div class="main-partner-text">
+        <div class="main-partner-image">
+          <img src="img/index/pia_partner.png" alt="ぴあ株式会社 上席執行役員 永島誠さんと太田宏介" />
+        </div>
+        <p>地域・行政・企業と連携しながら子どもたちが継続的にスポーツに携わる機会を創出し、スポーツを通じた人材育成および地域貢献を推進、社会的価値のある活動としてさらに発展させていく本活動の理念に深く賛同いただき、契約締結いただきました。</p>
+        <p>ぴあおよびジョガスポーツカレッジは、これらの活動を通じて、次世代を担う子どもたちの成長を支えるとともに、地域社会の発展と社会的価値創出に寄与してまいります。</p>
+        <div class="main-partner-btn-wrap">
+          <a href="partner.html" class="main-partner-btn">
+            VIEW MORE
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNS BANNER -->
+  <div class="sns-banner" style="grid-template-columns: 1fr; max-width: 600px; margin: 48px auto;">
+    <a href="https://www.instagram.com/jogaspo/" target="_blank" class="sns-card">
+      <!-- Instagram アイコン（グラデーション） -->
+      <svg class="sns-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ig-grad" cx="30%" cy="100%" r="120%">
+            <stop offset="0%" stop-color="#fdf497"/>
+            <stop offset="20%" stop-color="#fda555"/>
+            <stop offset="45%" stop-color="#fd5949"/>
+            <stop offset="60%" stop-color="#d6249f"/>
+            <stop offset="90%" stop-color="#285AEB"/>
+          </radialGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#ig-grad)"/>
+        <circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="7"/>
+        <circle cx="72" cy="28" r="5" fill="white"/>
+      </svg>
+      <div class="sns-card-text">
+        <p>JOGASPO公式</p>
+        <strong>Instagramはこちら</strong>
+      </div>
+      <!-- 外部リンクアイコン -->
+      <svg class="sns-ext" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-row">
+    <a href="partner.html" class="cta-card partner" data-en="PARTNERSHIP">
+      <p class="cta-en">PARTNER SHIP</p>
+      <p class="cta-jp">パートナーシップ</p>
+      <p class="cta-desc">スポーツを通じた活動で、全国の子どもたちを支援するパートナーを募集しています。</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+    <a href="contact.html" class="cta-card contact" data-en="CONTACT US">
+      <p class="cta-en">CONTACT US</p>
+      <p class="cta-jp">お問い合わせ</p>
+      <p class="cta-desc">活動、協賛、取材・広報に関するお問い合わせはこちらから</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+    <footer>
+    <a href="index.html" class="footer-logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:152px;width:auto;" />
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="about.html">運営団体について</a>
+    </div>
+    <p class="footer-copy">© JOGASPO. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function(){
+      var btn    = document.getElementById('hamburgerBtn');
+      var menu   = document.getElementById('spMenu');
+      var closeBtn = document.getElementById('spMenuClose');
+      function openMenu(){
+        menu.classList.add('is-open');
+        btn.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      if(btn)  btn.addEventListener('click', function(){ menu.classList.contains('is-open') ? closeMenu() : openMenu(); });
+      if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if(menu) menu.querySelectorAll('.sp-nav a, .sp-cta-links a').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

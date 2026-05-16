@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジョガスポ in 寒川　| ジョガスポーツカレッジ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-jp); color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    .logo-img { display:flex; align-items:center; }
+    img { max-width: 100%; display: block; }
+
+    
+    /* ========== BREADCRUMB ========== */
+    .breadcrumb {
+      margin-top: 100px;
+      padding: 16px 60px;
+      font-size: 12px;
+      color: #999;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .breadcrumb a { color: #999; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: #ccc; }
+
+    /* ========== ARTICLE ========== */
+    .article-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 60px 80px;
+    }
+
+    /* ロゴ */
+
+    /* タイトル */
+    .article-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    /* メタ情報（日付・カテゴリ） */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: #888;
+    }
+    .article-meta .date { color: rgb(0, 0, 0); }
+    .article-meta .category {
+      background: var(--accent);
+      color: var(--white);
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    /* 記事画像 */
+    .article-thumb {
+      margin: 28px 0 32px;
+    }
+    .article-thumb img {
+      max-height: 600px;
+      max-width: 100%;
+      width: auto;
+      display: block;
+    }
+
+    /* 本文 */
+    .article-body p {
+      font-size: 15px;
+      line-height: 2;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    /* 記事内の画像 */
+    .article-image {
+      width: 100%;
+      background: var(--gray);
+      border: 1px solid #ddd;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #aaa;
+      margin: 32px 0;
+    }
+
+    /* SNSシェアボタン */
+    /* ========== 戻るボタン ========== */
+    .back-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 60px 0 0;
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #14608b;
+      color: var(--white);
+      padding: 14px 48px;
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      transition: background 0.2s;
+    }
+    .btn-back:hover { background: var(--accent); }
+
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--white); border-top: 1px solid #E0E0E0;
+      padding: 32px 60px; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-btn {
+      background: #14608b; color: var(--white);
+      padding: 10px 20px; font-size: 11px; font-family: var(--font-en);
+      font-weight: 700; letter-spacing: 0.1em;
+      transition: background 0.2s; display: inline-block;
+    }
+    .footer-btn:hover { background: #fff; color: #000; }
+
+    /* ========== ANIMATION ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .article-wrap { animation: fadeUp 0.5s ease both; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .breadcrumb { padding: 12px 20px; }
+      .article-wrap { padding: 32px 20px 60px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  
+    :root {
+      --orange: #ea5432;
+      --blue:   #14608b;
+      --dark:   #1a1a1a;
+      --text:   #333333;
+      --gray:   #f7f7f7;
+      --line:   #e5e5e5;
+      --white:  #ffffff;
+      --font-jp:   'Noto Sans JP', sans-serif;
+      --font-en:   'Barlow', sans-serif;
+      --font-cond: 'Barlow Condensed', sans-serif;
+    }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 40px;
+    }
+    .logo { align-items: center; }
+    .logo img { height: 100px !important; width: auto !important; display: block; }
+    nav { display: flex; align-items: center; gap: 36px; }
+    header nav a { font-family: var(--font-en); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); transition: color 0.2s; white-space: nowrap; }
+    header nav a:hover, header nav a.active { color: var(--orange); }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .sns-icon { display: flex; align-items: center; justify-content: center; color: var(--dark); transition: color 0.2s; }
+    .sns-icon:hover { color: var(--orange); }
+    .sns-icon svg { width: 20px; height: 20px; }
+    .btn-header { background: var(--orange); color: #fff; padding: 11px 32px; font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
+    .btn-header:hover { background: var(--blue); }
+    
+    /* SNS BANNER */
+    .sns-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #e0e0e0;
+      margin: 0;
+    }
+    .sns-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px 40px;
+      background: #fff;
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .sns-card:hover { background: #fafafa; }
+    .sns-card-border {
+      border-left: 1px solid #e0e0e0;
+    }
+    .sns-logo {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .sns-card-text {
+      flex: 1;
+    }
+    .sns-card-text p {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+    .sns-card-text strong {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .sns-ext {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+    }
+    @media (max-width: 900px) {
+      .sns-banner { grid-template-columns: 1fr; }
+      .sns-card-border { border-left: none; border-top: 1px solid #e0e0e0; }
+    }
+    
+    /* ===== LOGO OVERRIDE（後勝ち・競合解消） ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .logo img,
+    .logo-img {
+      height: 100px !important;
+      width: auto !important;
+      max-width: none !important;
+      display: block;
+      object-fit: contain;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    
+    /* ===== SP ロゴ高さ強制上書き ===== */
+    @media (max-width: 768px) {
+      .logo img,
+      .logo-img {
+        height: 72px !important;
+        width: auto !important;
+        max-width: none !important;
+      }
+    }
+
+    /* ===== SP: ヘッダー下余白リセット ===== */
+    @media (max-width: 768px) {
+      .breadcrumb {
+        margin-top: 88px;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header>
+    <a href="index.html" class="logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:60px;width:auto;" />
+    </a>
+    <nav>
+      <a href="index.html">ジョガスポとは</a>
+      <a href="news.html" class="active">ニュース</a>
+      <a href="event.html">イベント・スクール・施設訪問</a>
+      <a href="partner.html">パートナーシップ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" class="sns-icon" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" class="sns-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="contact.html" class="btn-header">お問い合わせ</a>
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  </header>
+  <!-- SP MENU -->
+  <div class="sp-menu" id="spMenu">
+    <div class="sp-menu-header">
+      <a href="index.html" class="sp-menu-logo">
+        <img src="img/common/jogaspo_logo_white.svg" alt="JOGASPO" />
+      </a>
+      <button class="sp-menu-close" id="spMenuClose" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="sp-nav">
+      <a href="index.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ジョガスポとは</a>
+      <a href="news.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ニュース</a>
+      <a href="event.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">イベント・スクール・施設訪問</a>
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">パートナーシップ</a>
+    </nav>
+    <div class="sp-sns">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <span class="sns-yt-bg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        YOUTUBE
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        INSTAGRAM
+      </a>
+    </div>
+    <div class="sp-cta-links">
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">PARTNER SHIP</a>
+      <a href="contact.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">CONTACT US</a>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb">
+    <a href="index.html">HOME</a>
+    <span>›</span>
+    <a href="news.html">ニュース</a>
+    <span>›</span>
+    <span style="color:#555;">ジョガスポ in 寒川</span>
+  </div>
+
+  <!-- ========== ARTICLE ========== -->
+  <div class="article-wrap">
+
+    <!-- タイトル -->
+    <h1 class="article-title">ジョガスポ in 寒川</h1>
+
+    <!-- メタ情報 -->
+    <div class="article-meta">
+      <span class="date">2024.07.23</span>
+      <span class="category">イベント</span>
+    </div>
+
+    <!-- 記事画像 -->
+    <div class="article-thumb">
+      <img src="img/event/20240723_event15.jpg" alt="記事メイン画像">
+    </div>
+
+    <!-- 本文 -->
+    <div class="article-body">
+    <p>
+      去年大盛況だった【ジョガスポin寒川】がパワーアップして今年も開催決定！<br>
+      超豪華ゲストと共にみんなで最高の思い出を作りましょう！
+    </p>
+ 
+    <p>以下イベントの詳細になります。</p>
+
+    <p>■日時：8月18日(日)15：00～18：00</p>
+
+    <p>
+      ■場所：<br>
+      〒253-0111 <br>
+      神奈川県高座郡寒川町 <br>
+      一之宮3003-1 <br>
+      川とのふれあい公園
+    </p>
+
+    <p>■対象：小学生</p>
+
+    <p>■内容：レクリエーション、サッカー教室、エキシビジョンマッチ観戦(任意)</p>
+
+    <p>
+      【ジョガスポーツカレッジ】<br>
+      JOGASPO（ジョガスポ）は自分たちが子供のときに経験した感動を次世代に伝える唯一無二のエンタメスポーツカレッジです！<br>
+      ➖全ての子どもたちに平等にスポーツを楽しんでもらう➖<br>
+      参加費“無料”で参加できるスポーツイベント！<br>
+      全国47都道府県で開催される「体験型イベント」‼︎<br>
+      全国どこにでも進出することで、全ての子どもたちが平等にスポーツを楽しめる機会を提供いたします。<br>
+      地域、行政などと連携し、参加してくれた子供たちみんなを HAPPYに、笑顔溢れる活動をしていきます。
+    </p>
+
+    <p>
+      ★開催地域募集中<br>
+      ジョガスポではスポーツイベントを開催していただける地域を募集しております‼︎<br>
+      気軽にお問い合わせください。
+    </p>
+
+    <p>
+      ☆協賛企業募集中<br>
+      ジョガスポでは全国各地で開催するスポーツイベントに対してご支援いただける企業様を募集しております‼︎<br>
+      是非、ご支援のほど宜しくお願いいたします。
+    </p>
+    </div>
+
+    <!-- 戻るボタン -->
+    <div class="back-wrap">
+      <a href="news.html" class="btn-back">← ニュース一覧に戻る</a>
+    </div>
+
+  </div>
+
+    <!-- CTA -->
+  <div class="cta-row">
+    <a href="partner.html" class="cta-card partner" data-en="PARTNERSHIP">
+      <p class="cta-en">PARTNER SHIP</p>
+      <p class="cta-jp">パートナーシップ</p>
+      <p class="cta-desc">スポーツを通じた活動で、全国の子どもたちを支援するパートナーを募集しています。</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+    <a href="contact.html" class="cta-card contact" data-en="CONTACT US">
+      <p class="cta-en">CONTACT US</p>
+      <p class="cta-jp">お問い合わせ</p>
+      <p class="cta-desc">活動、協賛、取材・広報に関するお問い合わせはこちらから</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+  </div>
+
+  
+  <!-- FOOTER -->
+    <footer>
+    <a href="index.html" class="footer-logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:152px;width:auto;" />
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="about.html">運営団体について</a>
+    </div>
+    <p class="footer-copy">© JOGASPO. All rights reserved.</p>
+  </footer>
+
+
+
+  <script>
+    (function(){
+      var btn    = document.getElementById('hamburgerBtn');
+      var menu   = document.getElementById('spMenu');
+      var closeBtn = document.getElementById('spMenuClose');
+      function openMenu(){
+        menu.classList.add('is-open');
+        btn.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      if(btn)  btn.addEventListener('click', function(){ menu.classList.contains('is-open') ? closeMenu() : openMenu(); });
+      if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if(menu) menu.querySelectorAll('.sp-nav a, .sp-cta-links a').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>運営団体について | ジョガスポーツカレッジ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-jp); color: var(--text); background: var(--white); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    .logo-img { display:flex; align-items:center; }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 40px;
+    }
+    .logo { font-family: var(--font-en); font-weight: 800; font-size: 14px; letter-spacing: 0.05em; color: var(--dark); line-height: 1.3; }
+    .logo span { display: block; font-size: 10px; font-weight: 400; color: #777; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    header nav a { font-size: 13px; font-weight: 600; color: var(--dark); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+    header nav a:hover { color: #0E6B8A; }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .btn-contact-h { background: #14608b; color: var(--white); padding: 10px 40px; font-size: 12px; font-weight: 600; font-family: var(--font-en); letter-spacing: 0.08em; transition: background 0.2s; display: inline-block; }
+    .btn-contact-h:hover { background: var(--accent); }
+    .icon-ig { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1.5px solid #ddd; border-radius: 50%; transition: border-color 0.2s; }
+    .icon-ig:hover { border-color: var(--accent); }
+    .icon-ig svg { width: 16px; height: 16px; }
+
+    /* ========== PAGE HERO ========== */
+    .page-hero {
+      margin-top: 100px;
+      background: linear-gradient(135deg, #0E6B8A 0%, #063a50 100%);
+      padding: 72px 60px;
+      position: relative; overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+    }
+    .page-hero::before {
+      content: 'ABOUT';
+      position: absolute; right: 40px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display); letter-spacing: 0.06em;
+      font-size: 160px; color: rgba(255,255,255,0.03);
+      letter-spacing: 0.04em; white-space: nowrap;
+    }
+    .page-hero-text { position: relative; z-index: 1; }
+    .page-hero-label {
+      font-family: var(--font-en); font-size: 10px;
+      font-weight: 700; letter-spacing: 0.3em;
+      color: var(--accent); margin-bottom: 10px;
+      display: none; /* 将来再利用のためHTMLは残しCSSで非表示 */
+    }
+    .page-hero h1 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.4; letter-spacing: 0.02em;
+    }
+    .page-hero-logo {
+      width: 80px; height: 80px;
+      background: var(--white);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .page-hero-logo span {
+      font-family: var(--font-en); font-weight: 800;
+      font-size: 10px; color: var(--dark);
+      text-align: center; line-height: 1.4;
+    }
+
+    /* ========== MAIN WRAP ========== */
+    .about-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 60px 80px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    /* ========== セクション見出し ========== */
+    .block-title {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .block-title-line {
+      width: 32px; height: 3px; background: #0E6B8A; flex-shrink: 0;
+    }
+    .block-title h2 {
+      font-family: var(--font-en); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.25em;
+      color: var(--accent);
+    }
+    .block-title h2 span {
+      display: block; font-family: var(--font-jp);
+      font-size: 20px; font-weight: 900;
+      color: var(--dark); letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    /* ========== 概要テーブル ========== */
+    .overview-table {
+      width: 100%; border-collapse: collapse;
+      margin-bottom: 72px;
+    }
+    .overview-table tr {
+      border-bottom: 1px solid #eee;
+    }
+    .overview-table tr:first-child {
+      border-top: 1px solid #eee;
+    }
+    .overview-table th {
+      width: 180px;
+      padding: 24px 0;
+      font-size: 13px; font-weight: 700;
+      color: var(--dark); text-align: left;
+      vertical-align: top;
+      white-space: nowrap;
+      position: relative;
+    }
+    .overview-table th::after {
+      content: '';
+      position: absolute; left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 3px; height: 16px;
+      background: var(--accent);
+    }
+    .overview-table th span {
+      padding-left: 14px;
+    }
+    .overview-table td {
+      padding: 24px 0 24px 32px;
+      font-size: 14px; color: #444;
+      line-height: 2; vertical-align: top;
+    }
+    .overview-table td ul {
+      list-style: none; padding: 0;
+    }
+    .overview-table td ul li {
+      padding-left: 14px; position: relative;
+      margin-bottom: 4px;
+    }
+    .overview-table td ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--accent); font-size: 11px;
+    }
+
+    /* ========== ミッションブロック ========== */
+    .mission-block {
+      background: linear-gradient(135deg, #0E6B8A 0%, #063a50 100%);
+      padding: 56px 60px;
+      margin-bottom: 72px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .mission-block::before {
+      content: '';
+    }
+    .mission-block .mission-label {
+      font-family: var(--font-en); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.3em;
+      color: var(--orange); margin-bottom: 16px;
+      text-transform: uppercase; display: block;
+    }
+    .mission-block h3 {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.6; margin-bottom: 24px;
+    }
+    .mission-block p {
+      font-size: 14px; line-height: 2.1;
+      color: rgba(255,255,255,0.7);
+      max-width: 640px; margin: 0 auto; position: relative; z-index: 1;
+    }
+
+    /* ========== 代表メッセージ ========== */
+    .message-block {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+    .message-text .msg-label {
+      font-family: var(--font-en); font-size: 10px;
+      font-weight: 700; letter-spacing: 0.3em;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .message-text h3 {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 900; color: var(--dark);
+      line-height: 1.5; margin-bottom: 24px;
+    }
+    .message-text p {
+      font-size: 14px; line-height: 2.2;
+      color: #444; margin-bottom: 16px;
+    }
+    .message-text .name-block {
+      margin-top: 28px; padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    .message-text .name-en {
+      font-family: var(--font-display); letter-spacing: 0.06em;
+      font-size: 28px; letter-spacing: 0.08em;
+      color: var(--dark); line-height: 1;
+    }
+    .message-text .name-jp {
+      font-size: 13px; color: #888; margin-top: 4px;
+    }
+    .message-text .title-jp {
+      font-size: 12px; color: var(--accent);
+      font-weight: 600; margin-bottom: 8px;
+    }
+    .message-photo {
+      background: #ccc;
+      aspect-ratio: 3/4;
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 13px; color: #888;
+    }
+
+    /* ========== CTA ========== */
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; margin-top: 60px; }
+    .cta-card { overflow: hidden; aspect-ratio: 16/8; display: flex; align-items: flex-end; padding: 40px; transition: filter 0.3s; }
+    .cta-card:hover { filter: brightness(1.1); }
+    .cta-card.partnership { background: linear-gradient(135deg, #0E6B8A 0%, #084a60 100%); }
+    .cta-card.contact { background: linear-gradient(135deg, #E05030 0%, #b03a20 100%); }
+    .cta-card-label { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); margin-bottom: 4px; display: block; }
+    .cta-card h3 { font-family: var(--font-display); letter-spacing: 0.06em; font-size: clamp(28px, 4vw, 48px); color: var(--white); letter-spacing: 0.08em; margin-bottom: 8px; }
+    .cta-card-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--dark); padding: 10px 24px; font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; transition: background 0.2s, color 0.2s; }
+    .btn-cta:hover { background: var(--accent); color: var(--white); font-weight: 700; letter-spacing: 0.12em; }
+
+    /* ========== FOOTER ========== */
+    footer { background: var(--white); border-top: 1px solid #E0E0E0; padding: 32px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-btn { background: var(--accent); color: var(--white); padding: 12px 24px; font-size: 11px; font-family: var(--font-en); font-weight: 700; letter-spacing: 0.1em; transition: background 0.2s; display: inline-block; }
+    .footer-btn:hover { background: #fff; color: #000; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .page-hero { padding: 48px 20px; grid-template-columns: 1fr; }
+      .page-hero-logo { display: none; }
+      .about-wrap { padding: 40px 20px 60px; }
+      .overview-table th { width: 120px; }
+      .mission-block { padding: 40px 24px; }
+      .message-block { grid-template-columns: 1fr; }
+      .message-photo { aspect-ratio: 16/9; }
+      .cta-row { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  
+    :root {
+      --orange: #ea5432;
+      --blue:   #14608b;
+      --dark:   #1a1a1a;
+      --text:   #333333;
+      --gray:   #f7f7f7;
+      --line:   #e5e5e5;
+      --white:  #ffffff;
+      --font-jp:   'Noto Sans JP', sans-serif;
+      --font-en:   'Barlow', sans-serif;
+      --font-cond: 'Barlow Condensed', sans-serif;
+    }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 40px;
+    }
+    .logo { align-items: center; }
+    .logo img { height: 100px !important; width: auto !important; display: block; }
+    nav { display: flex; align-items: center; gap: 36px; }
+    header nav a { font-family: var(--font-en); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); transition: color 0.2s; white-space: nowrap; }
+    header nav a:hover, header nav a.active { color: var(--orange); }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .sns-icon { display: flex; align-items: center; justify-content: center; color: var(--dark); transition: color 0.2s; }
+    .sns-icon:hover { color: var(--orange); }
+    .sns-icon svg { width: 20px; height: 20px; }
+    .btn-header { background: var(--orange); color: #fff; padding: 11px 32px; font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
+    .btn-header:hover { background: var(--blue); }
+    /* CTA */
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; }
+    .cta-card { padding: 64px 60px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 240px; transition: filter 0.2s; position: relative; overflow: hidden; }
+    .cta-card:hover { filter: brightness(1.08); }
+    .cta-label { font-family: var(--font-en); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+    .cta-en { font-family: var(--font-cond); font-size: clamp(42px, 6vw, 68px); font-weight: 800; letter-spacing: 0.06em; color: #fff; line-height: 1.1; margin-bottom: 8px; max-width: 520px; min-height: 58px; display: flex; align-items: flex-end; white-space: nowrap; }
+    .cta-jp { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 12px; max-width: 400px; min-height: 16px; }
+    .cta-desc { font-size: 11px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; max-width: 520px; min-height: 38px; display: flex; align-items: flex-start; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: var(--dark);
+      padding: 10px 24px; font-family: var(--font-en);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; width: fit-content;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-card:hover .cta-btn { background: var(--orange); color: #fff; }
+    .cta-card.partner { background: #111; }
+    .cta-card.contact { background: var(--blue); }
+    
+    /* SNS BANNER */
+    .sns-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #e0e0e0;
+      margin: 0;
+    }
+    .sns-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px 40px;
+      background: #fff;
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .sns-card:hover { background: #fafafa; }
+    .sns-card-border {
+      border-left: 1px solid #e0e0e0;
+    }
+    .sns-logo {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .sns-card-text {
+      flex: 1;
+    }
+    .sns-card-text p {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+    .sns-card-text strong {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .sns-ext {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+    }
+    @media (max-width: 900px) {
+      .sns-banner { grid-template-columns: 1fr; }
+      .sns-card-border { border-left: none; border-top: 1px solid #e0e0e0; }
+    }
+    
+    /* ===== LOGO OVERRIDE（後勝ち・競合解消） ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .logo img,
+    .logo-img {
+      height: 100px !important;
+      width: auto !important;
+      max-width: none !important;
+      display: block;
+      object-fit: contain;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-logo img { height: 152px !important; width: auto !important; }
+    /* ===== RECRUIT SECTION ===== */
+    .recruit-section {
+      padding: 80px 60px;
+      text-align: center;
+      background: var(--white);
+    }
+    .recruit-section h2 {
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 900; color: var(--dark);
+      margin-bottom: 16px; line-height: 1.5;
+    }
+    .recruit-section > p {
+      font-size: 14px; line-height: 2; color: #555;
+      max-width: 600px; margin: 0 auto 40px;
+    }
+    .recruit-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      max-width: 800px;
+      margin: 0 auto 48px;
+      text-align: left;
+    }
+    .recruit-step {
+      padding: 28px 24px;
+      background: var(--gray);
+      border-top: 3px solid var(--blue);
+      position: relative;
+    }
+    .recruit-section .recruit-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      border-left: 14px solid #d9d9d9;
+      z-index: 2;
+    }
+    .recruit-step .num {
+      font-family: var(--font-cond); letter-spacing: 0.06em;
+      font-size: 40px; color: var(--blue);
+      line-height: 1; margin-bottom: 10px;
+    }
+    .recruit-step h3 {
+      font-size: 14px; font-weight: 700;
+      color: var(--dark); margin-bottom: 8px;
+    }
+    .recruit-step p { font-size: 12px; line-height: 1.9; color: #666; }
+    .btn-contact-large {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #14608b; color: var(--white);
+      padding: 18px 56px;
+      font-family: var(--font-en); font-size: 13px;
+      font-weight: 700; letter-spacing: 0.15em;
+      transition: background 0.2s;
+    }
+    .btn-contact-large:hover { background: var(--orange); }
+    @media (max-width: 900px) {
+      .recruit-section { padding: 48px 20px; }
+      .recruit-steps { grid-template-columns: 1fr; }
+      .recruit-section .recruit-step::after { display: none; }
+    }
+    
+    /* ===== SP ロゴ高さ強制上書き ===== */
+    @media (max-width: 768px) {
+      .logo img,
+      .logo-img {
+        height: 72px !important;
+        width: auto !important;
+        max-width: none !important;
+      }
+    }
+
+    /* ===== SP: ヘッダー下余白リセット ===== */
+    @media (max-width: 768px) {
+      .page-hero {
+        margin-top: 88px;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header>
+    <a href="index.html" class="logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:60px;width:auto;" />
+    </a>
+    <nav>
+      <a href="index.html" class="active">ジョガスポとは</a>
+      <a href="news.html">ニュース</a>
+      <a href="event.html">イベント・スクール・施設訪問</a>
+      <a href="partner.html">パートナーシップ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" class="sns-icon" title="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" class="sns-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="contact.html" class="btn-header">お問い合わせ</a>
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  </header>
+  <!-- SP MENU -->
+  <div class="sp-menu" id="spMenu">
+    <div class="sp-menu-header">
+      <a href="index.html" class="sp-menu-logo">
+        <img src="img/common/jogaspo_logo_white.svg" alt="JOGASPO" />
+      </a>
+      <button class="sp-menu-close" id="spMenuClose" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="sp-nav">
+      <a href="index.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ジョガスポとは</a>
+      <a href="news.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">ニュース</a>
+      <a href="event.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">イベント・スクール・施設訪問</a>
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">パートナーシップ</a>
+    </nav>
+    <div class="sp-sns">
+      <a href="https://www.youtube.com/@JOGASPO" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <span class="sns-yt-bg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        YOUTUBE
+      </a>
+      <a href="https://www.instagram.com/jogaspo/" target="_blank" rel="noopener" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:flex!important;align-items:center!important;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        INSTAGRAM
+      </a>
+    </div>
+    <div class="sp-cta-links">
+      <a href="partner.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">PARTNER SHIP</a>
+      <a href="contact.html" style="font-family:'Noto Sans JP',sans-serif!important;text-align:left!important;text-transform:none!important;display:block!important;">CONTACT US</a>
+    </div>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <div class="page-hero">
+    <div class="page-hero-text">
+      <p class="page-hero-label">ABOUT US</p>
+      <h1>一般社団法人<br>ジョガスポーツカレッジ</h1>
+    </div>
+  </div>
+
+  <!-- ========== MAIN ========== -->
+  <div class="about-wrap">
+
+    <!-- 法人概要 -->
+    <div class="block-title">
+      <div class="block-title-line"></div>
+      <div>
+        <h2>OVERVIEW <span>法人概要</span></h2>
+      </div>
+    </div>
+
+    <table class="overview-table">
+      <tr>
+        <th><span>法人名称</span></th>
+        <td>一般社団法人ジョガスポーツカレッジ</td>
+      </tr>
+      <tr>
+        <th><span>代表者</span></th>
+        <td>太田 文香</td>
+      </tr>
+      <tr>
+        <th><span>所在地</span></th>
+        <td>神奈川県横浜市青葉区たちばな台1-11-9 324</td>
+      </tr>
+      <tr>
+        <th><span>設立年月日</span></th>
+        <td>2025年4月3日</td>
+      </tr>
+      <tr>
+        <th><span>事業内容</span></th>
+        <td>
+          <ul>
+            <li>スポーツイベント事業</li>
+            <li>スポーツスクールの運営</li>
+            <li>講演会の開催</li>
+            <li>スポーツを通した社会貢献活動</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+    <!-- ミッション -->
+    <div class="mission-block">
+      <p class="mission-label">MISSION</p>
+      <h3>誰もが平等にスポーツを<br>楽しめる機会を届ける</h3>
+      <p>全国各地でスポーツイベント・スポーツ教室を開催していきます。地域・行政などと連携し、参加してくれた子供たちみんなをHAPPYに、笑顔溢れる活動をしています。すべての子どもたちに平等にスポーツを楽しんでもらうことが、私たちの使命です。</p>
+    </div>
+
+    <!-- パートナー募集 -->
+    <section class="recruit-section">
+      <h2>パートナーを募集しています</h2>
+      <p>スポーツを通じた活動の力で、新たな価値を創造するパートナーをお待ちしています。<br>企業・団体・個人を問わず、ぜひお気軽にご相談ください。</p>
+      <div class="recruit-steps">
+        <div class="recruit-step">
+          <div class="num">01</div>
+          <h3>お問い合わせ</h3>
+          <p>まずはお問い合わせフォームよりご連絡ください。担当者よりご返信いたします。</p>
+        </div>
+        <div class="recruit-step">
+          <div class="num">02</div>
+          <h3>ご相談・お打ち合わせ</h3>
+          <p>活動内容や協賛方法について、丁寧にご説明します。ご要望に合わせた形をご提案します。</p>
+        </div>
+        <div class="recruit-step">
+          <div class="num">03</div>
+          <h3>パートナーシップ締結</h3>
+          <p>内容にご合意いただいたら、契約締結後に活動をスタートします。一緒に子どもたちに笑顔を届けましょう！</p>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-contact-large">お問い合わせはこちら →</a>
+    </section>
+
+
+  </div>
+
+    <!-- CTA -->
+  <div class="cta-row">
+    <a href="partner.html" class="cta-card partner" data-en="PARTNERSHIP">
+      <p class="cta-en">PARTNER SHIP</p>
+      <p class="cta-jp">パートナーシップ</p>
+      <p class="cta-desc">スポーツを通じた活動で、全国の子どもたちを支援するパートナーを募集しています。</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+    <a href="contact.html" class="cta-card contact" data-en="CONTACT US">
+      <p class="cta-en">CONTACT US</p>
+      <p class="cta-jp">お問い合わせ</p>
+      <p class="cta-desc">活動、協賛、取材・広報に関するお問い合わせはこちらから</p>
+      <span class="cta-btn">VIEW MORE →</span>
+    </a>
+  </div>
+
+  
+  <!-- FOOTER -->
+    <footer>
+    <a href="index.html" class="footer-logo">
+      <img src="img/common/jogaspo-logo-v2.svg" alt="JOGASPO" style="height:152px;width:auto;" />
+    </a>
+    <div class="footer-links">
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="about.html">運営団体について</a>
+    </div>
+    <p class="footer-copy">© JOGASPO. All rights reserved.</p>
+  </footer>
+
+
+
+  <script>
+    (function(){
+      var btn    = document.getElementById('hamburgerBtn');
+      var menu   = document.getElementById('spMenu');
+      var closeBtn = document.getElementById('spMenuClose');
+      function openMenu(){
+        menu.classList.add('is-open');
+        btn.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      if(btn)  btn.addEventListener('click', function(){ menu.classList.contains('is-open') ? closeMenu() : openMenu(); });
+      if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if(menu) menu.querySelectorAll('.sp-nav a, .sp-cta-links a').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>
